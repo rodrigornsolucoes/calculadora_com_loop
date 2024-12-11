@@ -13,26 +13,26 @@ def calculadora(n1, n2, op):
             return "Nao e possivel dividir um numero por zero."
         else:
             return n1 / n2
-    elif op == 0:
-        return "Essa opcao nao existe"
+    else:
+        return 0
     
-print('''Escolha uma uma opcao abaixo
-    1: Soma
-    2: Subtracao
-    3: Multiplicacao
-    4: Divisao
-    0: Sair''')
-
-opcao = int(input("Qual foi sua escolha? "))
-
-while opcao > 0:
-    num_1 = int(input("Digite o primeiro numero: "))
-    nun_2 = int(input("Digite o segundo numero: "))
-    print(calculadora(num_1, nun_2, opcao))
+seguir = True
+    
+while seguir == True:
     print('''Escolha uma uma opcao abaixo
     1: Soma
     2: Subtracao
     3: Multiplicacao
     4: Divisao
     0: Sair''')
-    opcao = int(input("Digite sua opcao aqui: "))
+
+    opcao = int(input("Qual foi sua escolha? "))
+    
+    if (opcao < 0) or (opcao > 4):
+        print("Essa opcao nao existe")
+    elif opcao == 0:
+        seguir = False
+    else:
+        num_1 = int(input("Digite o primeiro numero: "))
+        nun_2 = int(input("Digite o segundo numero: "))
+        print("O Resultado e: ", calculadora(num_1, nun_2, opcao))
